@@ -7,47 +7,58 @@ import Energy from '@/assets/icons/energy.svg?react'
 import Like from '@/assets/icons/like.svg?react'
 import { cn } from '@/shared/lib'
 
+const buttons = [
+	{
+		icon: <Retry />,
+		color: '#CD7105',
+		size: 'small',
+		action: 'onRetry',
+	},
+	{
+		icon: <Dislike />,
+		color: '#F3485B',
+		size: 'big',
+		action: 'onDislike',
+	},
+	{
+		icon: <Star />,
+		color: '#1786FF',
+		size: 'small',
+		action: 'onStar',
+	},
+	{
+		icon: <Like />,
+		color: '#199A6A',
+		size: 'big',
+		action: 'onLike',
+	},
+	{
+		icon: <Energy />,
+		color: '#BA52F5',
+		size: 'small',
+		action: 'onEnergy',
+	},
+]
+
 type Props = {
 	user: User
-	withActions?: boolean
+	actions?: {
+		onLike?: () => void
+		onDislike?: () => void
+		onStar?: () => void
+		onEnergy?: () => void
+		onRetry?: () => void
+	}
 }
 
-export const UserCard = ({ user, withActions = false }: Props) => {
-	const buttons = [
-		{
-			icon: <Retry />,
-			color: '#CD7105',
-			size: 'small',
-		},
-		{
-			icon: <Dislike />,
-			color: '#F3485B',
-			size: 'big',
-		},
-		{
-			icon: <Star />,
-			color: '#1786FF',
-			size: 'small',
-		},
-		{
-			icon: <Like />,
-			color: '#199A6A',
-			size: 'big',
-		},
-		{
-			icon: <Energy />,
-			color: '#BA52F5',
-			size: 'small',
-		},
-	]
-
+export const UserCard = ({ user, actions }: Props) => {
 	return (
 		<div className={'rounded-lg overflow-hidden flex flex-col h-full max-w-md'}>
-			<div className='relative flex-1'>
+			<div className='relative flex-1 flex flex-col'>
 				{/* Images */}
 				<img
 					src={user.profile.photos[0].url}
-					className='w-full h-full object-cover'
+					className='w-full h-0 grow object-cover'
 				/>
 				{/* User Info */}
 				<div className='z-10 absolute bottom-6 right-4 left-4'>
@@ -79,21 +90,25 @@ export const UserCard = ({ user, withActions = false }: Props) => {
 			</div>
 
 			{/* Actions */}
-			{withActions && (
+			{actions && (
 				<div className='bg-black flex justify-center items-center py-[13px] gap-6 shrink-0'>
-					{buttons.map((button, i) => (
+					{buttons.map(({ size, color, icon, action }, i) => (
 						<button
 							key={i}
-							className={cn('rounded-full flex items-center justify-center', {
-								'size-12': button.size === 'small',
-								'size-15': button.size === 'big',
-							})}
+							className={cn(
+								'rounded-full flex items-center justify-center pressable',
+								{
+									'size-12': size === 'small',
+									'size-15': size === 'big',
+								}
+							)}
 							style={{
-								border: `1px solid ${button.color}`,
-								color: button.color,
+								border: `1px solid ${color}`,
+								color: color,
 							}}
+							onClick={actions[action as keyof typeof actions] || undefined}
 						>
-							{button.icon}
+							{icon}
 						</button>
 					))}
 				</div>
