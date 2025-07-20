@@ -37,7 +37,7 @@ export const RegistrationPage = () => {
 	}
 
 	return (
-		<div className='h-screen overflow-hidden max-w-2xl mx-auto flex flex-col'>
+		<div className='h-screen overflow-hidden flex flex-col'>
 			<Progress current={step + 1} max={3} />
 			<RegistrationContext.Provider
 				value={{ step, formData, setFormData, handleNext, handleBack }}

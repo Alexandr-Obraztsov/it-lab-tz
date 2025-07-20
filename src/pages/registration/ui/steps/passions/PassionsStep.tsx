@@ -29,7 +29,7 @@ export const PassionsStep = () => {
 	}
 
 	return (
-		<div className='h-full overflow-hidden flex flex-col'>
+		<div className='h-full overflow-hidden flex flex-col max-w-2xl w-full mx-auto'>
 			<div className='pt-[17px] px-6 pb-6 border-b border-border'>
 				<div className='flex items-center justify-between'>
 					<Back className='text-gray-200' onClick={handleBack} />
@@ -45,7 +45,7 @@ export const PassionsStep = () => {
 					profile.
 				</p>
 			</div>
-			<div className='h-0 grow py-5 px-6 flex flex-wrap gap-2 justify-center overflow-y-auto'>
+			<div className='h-0 grow py-5 px-6 flex flex-wrap gap-2 justify-center overflow-y-auto no-scrollbar'>
 				{passions.map((passion, id) => (
 					<button
 						key={id}

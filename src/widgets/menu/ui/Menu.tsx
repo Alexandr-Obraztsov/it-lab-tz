@@ -39,8 +39,8 @@ export const Menu = () => {
 	const location = useLocation()
 	const isActive = (href: string) => location.pathname.includes(href)
 	return (
-		<nav className='flex-none bg-background'>
-			<ul className='flex justify-around items-center w-full'>
+		<nav className='flex-none bg-background z-99'>
+			<ul className='flex justify-around items-center w-full max-w-sm mx-auto'>
 				{menuItems.map(item => (
 					<li
 						key={item.label}

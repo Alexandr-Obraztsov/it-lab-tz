@@ -8,11 +8,16 @@ export const HomePage = () => {
 	const users = useAppSelector(selectUsers)
 
 	return (
-		<div className='h-screen flex flex-col'>
-			<div className='grow flex flex-col justify-end px-1'>
+		<div className='h-screen flex flex-col pt-12'>
+			<div className='grow mx-auto w-full relative max-w-sm'>
 				{users.map(user => (
-					<TinderCard key={user.id} onSwipe={() => {}}>
-						<UserCard key={user.id} user={user} />
+					<TinderCard
+						key={user.id}
+						onSwipe={() => {}}
+						preventSwipe={['down', 'up']}
+						className='absolute w-full h-full px-1'
+					>
+						<UserCard key={user.id} user={user} withActions />
 					</TinderCard>
 				))}
 			</div>

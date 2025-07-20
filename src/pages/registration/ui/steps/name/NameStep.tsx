@@ -21,7 +21,7 @@ export const NameStep = () => {
 	}, [formData.username])
 
 	return (
-		<div className='pt-4 px-6'>
+		<div className='pt-4 px-6 max-w-2xl w-full mx-auto'>
 			<CloseIcon className='text-gray-200' />
 			<h1 className='text-primary text-[28px] leading-[36px] font-bold mt-[15px]'>
 				My first name is
