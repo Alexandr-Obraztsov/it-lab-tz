@@ -32,7 +32,7 @@ export const EditTab = () => {
 	}
 	return (
 		<div className='h-full bg-foreground'>
-			<div className='px-2 pt-2.5 grid grid-cols-3 gap-2'>
+			<div className='px-2 pt-2.5 grid grid-cols-3 gap-2 max-w-lg mx-auto'>
 				{Array.from({ length: MAX_PHOTOS_COUNT }).map((_, index) => (
 					<PhotoPlace
 						key={index}
@@ -52,11 +52,13 @@ export const EditTab = () => {
 			>
 				Add media
 			</Button>
-			<div className='mt-7 bg-background px-4 py-3 border-b border-t border-border flex justify-between items-center'>
-				<span className='text-primary text-[16px] leading-[21px]'>
-					Smart Photos
-				</span>
-				<Switch checked={smartPhotos} onCheckedChange={setSmartPhotos} />
+			<div className='mt-7 bg-background px-4 py-3 border-b border-t border-border'>
+				<div className='flex justify-between items-center max-w-2xl mx-auto'>
+					<span className='text-primary text-[16px] leading-[21px]'>
+						Smart Photos
+					</span>
+					<Switch checked={smartPhotos} onCheckedChange={setSmartPhotos} />
+				</div>
 			</div>
 		</div>
 	)

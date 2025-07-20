@@ -1,4 +1,4 @@
-import { UserCard } from '@/entities'
+import { UserCard } from '@/entities/user'
 import { RegistrationContext } from '@/pages/registration/model/RegistrationContext'
 import { useContext } from 'react'
 

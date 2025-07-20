@@ -20,26 +20,28 @@ export const PhotosStep = () => {
 	return (
 		<div className='pt-[38px] h-full overflow-hidden flex flex-col'>
 			{/* Tabs */}
-			<div className='flex items-center border-b border-border'>
-				<button
-					className={cn(
-						'grow transition-colors duration-300 border-r border-border h-[50px] text-[19px] leading-[26px] font-bold text-secondary',
-						activeTab === 'edit' && 'text-chip-2'
-					)}
-					onClick={handleTabChange('edit')}
-				>
-					Edit
-				</button>
-				<button
-					className={cn(
-						'grow transition-[colors,opacity] duration-300 h-[50px] text-[19px] leading-[26px] font-bold text-secondary disabled:opacity-60',
-						activeTab === 'preview' && 'text-chip-2'
-					)}
-					onClick={handleTabChange('preview')}
-					disabled={!photos.length}
-				>
-					Preview
-				</button>
+			<div className='border-b border-border'>
+				<div className='flex max-w-2xl mx-auto'>
+					<button
+						className={cn(
+							'grow transition-colors duration-300 border-r border-border h-[50px] text-[19px] leading-[26px] font-bold text-secondary',
+							activeTab === 'edit' && 'text-chip-2'
+						)}
+						onClick={handleTabChange('edit')}
+					>
+						Edit
+					</button>
+					<button
+						className={cn(
+							'grow transition-[colors,opacity] duration-300 h-[50px] text-[19px] leading-[26px] font-bold text-secondary disabled:opacity-60',
+							activeTab === 'preview' && 'text-chip-2'
+						)}
+						onClick={handleTabChange('preview')}
+						disabled={!photos.length}
+					>
+						Preview
+					</button>
+				</div>
 			</div>
 
 			{/* Tabs content */}
