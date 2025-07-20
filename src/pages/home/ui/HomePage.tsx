@@ -9,7 +9,8 @@ export const HomePage = () => {
 
 	return (
 		<div className='h-screen flex flex-col pt-12'>
-			<div className='grow mx-auto w-full relative max-w-sm'>
+			{/* Cards */}
+			<div className='grow mx-auto w-full relative max-w-md'>
 				{users.map(user => (
 					<TinderCard
 						key={user.id}
