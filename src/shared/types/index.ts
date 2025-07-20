@@ -29,3 +29,8 @@ export type Photo = {
 	id: string
 	url: string
 }
+
+export type SwipeAPI = {
+	swipe: (direction: 'left' | 'right') => Promise<void>
+	restoreCard: () => Promise<void>
+}

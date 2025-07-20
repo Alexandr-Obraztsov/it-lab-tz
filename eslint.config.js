@@ -10,7 +10,6 @@ export default tseslint.config([
 	{
 		files: ['**/*.{ts,tsx}'],
 		extends: [
-			'plugin:fsd/all',
 			js.configs.recommended,
 			tseslint.configs.recommended,
 			reactHooks.configs['recommended-latest'],

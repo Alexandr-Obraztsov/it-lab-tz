@@ -8,7 +8,7 @@ export const useMount = (callback?: () => void) => {
 			callback?.()
 			setIsMounted(true)
 		}
-	}, [])
+	}, [callback, isMounted])
 
 	return isMounted
 }
