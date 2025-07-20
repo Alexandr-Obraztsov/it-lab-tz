@@ -1,6 +1,7 @@
 import { selectUsers } from '@/app/store/slices/usersSlice'
 import { UserCard } from '@/entities/user'
 import { useAppSelector } from '@/shared/lib'
+import type { SwipeAPI } from '@/shared/types'
 import React from 'react'
 import { useMemo } from 'react'
 import TinderCard from 'react-tinder-card'
@@ -16,23 +17,20 @@ export const Cards = () => {
 		() =>
 			Array(users.length)
 				.fill(0)
-				.map(i => React.createRef<unknown>()),
-		[]
+				.map(() => React.createRef<SwipeAPI>()),
+		[users.length]
 	)
 
 	const swipe = async (index: number, direction: 'left' | 'right') => {
 		if (!childRefs[index].current) return
-		const card = childRefs[index].current as {
-			swipe: (direction: 'left' | 'right') => Promise<void>
-		}
-		await card.swipe(direction)
+		await childRefs[index].current.swipe(direction)
 	}
 
 	return (
 		<div className='grow mx-auto w-full relative max-w-md'>
 			{users.map((user, index) => (
 				<TinderCard
-					ref={childRefs[index] as any}
+					ref={childRefs[index]}
 					key={user.id}
 					onCardLeftScreen={onCardLeft}
 					preventSwipe={['down', 'up']}

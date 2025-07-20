@@ -12,19 +12,14 @@ const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		setProfile: (state, action: PayloadAction<Profile>) => {
-			state = action.payload
-		},
-		updateProfile: (state, action: PayloadAction<Profile>) => {
-			state = action.payload
-		},
-		updateBasicInfo: (state, action: PayloadAction<Profile>) => {
-			state = action.payload
-		},
+		setProfile: (_, action: PayloadAction<Profile>) => action.payload,
+		updateProfile: (state, action: PayloadAction<Partial<Profile>>) => ({
+			...state,
+			...action.payload,
+		}),
 	},
 })
 
-export const { setProfile, updateProfile, updateBasicInfo } =
-	profileSlice.actions
+export const { setProfile, updateProfile } = profileSlice.actions
 
 export const profileReducer = profileSlice.reducer

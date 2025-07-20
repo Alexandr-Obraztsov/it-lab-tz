@@ -9,7 +9,8 @@ export const RegistrationContext = createContext<RegistrationContextType>({
 		passions: [],
 		photos: [],
 	},
-	setFormData: (data: Profile) => {},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	setFormData: (_: Profile) => {},
 	handleNext: () => {},
 	handleBack: () => {},
 })

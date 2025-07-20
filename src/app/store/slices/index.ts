@@ -1,6 +1,1 @@
-export {
-	profileReducer,
-	setProfile,
-	updateProfile,
-	updateBasicInfo,
-} from './profileSlice'
+export { profileReducer, setProfile, updateProfile } from './profileSlice'
