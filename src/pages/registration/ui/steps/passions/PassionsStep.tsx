@@ -29,25 +29,23 @@ export const PassionsStep = () => {
 	}
 
 	return (
-		<div className='h-full overflow-hidden flex flex-col '>
+		<div className='h-full overflow-hidden flex flex-col max-w-2xl w-full mx-auto'>
 			<div className='pt-[17px] px-6 pb-6 border-b border-border'>
-				<div className='max-w-2xl w-full mx-auto'>
-					<div className='flex items-center justify-between'>
-						<Back className='text-gray-200' onClick={handleBack} />
-						<Button variant='ghost' onClick={handleNext}>
-							Skip
-						</Button>
-					</div>
-					<h1 className='text-primary text-[28px] leading-[36px] font-bold mt-[17px]'>
-						Passions
-					</h1>
-					<p className='text-secondary text-[17px] leading-[24px] mt-[7px]'>
-						Let everyone know what you’re passionate about, by adding it to your
-						profile.
-					</p>
+				<div className='flex items-center justify-between'>
+					<Back className='text-gray-200' onClick={handleBack} />
+					<Button variant='ghost' onClick={handleNext}>
+						Skip
+					</Button>
 				</div>
+				<h1 className='text-primary text-[28px] leading-[36px] font-bold mt-[17px]'>
+					Passions
+				</h1>
+				<p className='text-secondary text-[17px] leading-[24px] mt-[7px]'>
+					Let everyone know what you’re passionate about, by adding it to your
+					profile.
+				</p>
 			</div>
-			<div className='h-0 grow py-5 px-6 flex flex-wrap gap-2 justify-center overflow-y-auto no-scrollbar max-w-2xl w-full mx-auto'>
+			<div className='h-0 grow py-5 px-6 flex flex-wrap gap-2 justify-center overflow-y-auto no-scrollbar'>
 				{passions.map((passion, id) => (
 					<button
 						key={id}
@@ -63,7 +61,7 @@ export const PassionsStep = () => {
 			</div>
 			<div className='p-4 bg-background border-t border-border'>
 				<Button
-					className='max-w-2xl w-full mx-auto block'
+					className='w-full'
 					disabled={selectedPassions.length < MIN_PASSIONS_COUNT}
 					onClick={handleContinue}
 				>

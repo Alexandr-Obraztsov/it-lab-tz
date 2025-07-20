@@ -6,9 +6,7 @@ export const PreviewTab = () => {
 	const { formData } = useContext(RegistrationContext)
 	return (
 		<div className='h-full bg-foreground p-3'>
-			<div className='h-full	max-w-md mx-auto'>
-				<UserCard user={{ id: '', profile: formData }} />
-			</div>
+			<UserCard user={{ id: '', profile: formData }} />
 		</div>
 	)
 }

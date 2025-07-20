@@ -42,7 +42,7 @@ export const UserCard = ({ user, withActions = false }: Props) => {
 	]
 
 	return (
-		<div className={'rounded-lg overflow-hidden flex flex-col h-full max-w-md'}>
+		<div className={'rounded-lg overflow-hidden flex flex-col h-full'}>
 			<div className='relative flex-1'>
 				{/* Images */}
 				<img
