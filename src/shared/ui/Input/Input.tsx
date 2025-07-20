@@ -1,37 +1,15 @@
 import React from 'react'
-import { cn } from '../../lib/utils'
+import { cn } from '../../lib/utils/cn'
 
-export interface InputProps
-	extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-	label?: string
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 	error?: string
-	helperText?: string
 }
 
-export const Input: React.FC<InputProps> = ({
-	label,
-	error,
-	helperText,
-	className,
-	id,
-	...props
-}) => {
-	const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`
-
+export const Input: React.FC<InputProps> = ({ error, className, ...props }) => {
 	return (
 		<div className='w-full'>
-			{label && (
-				<label
-					htmlFor={inputId}
-					className='block text-sm font-medium text-gray-700 mb-2'
-				>
-					{label}
-				</label>
-			)}
-
 			<div className='relative'>
 				<input
-					id={inputId}
 					className={cn(
 						// Базовые стили
 						'w-full transition-all duration-200 focus:outline-none border border-border rounded-lg bg-foreground text-primary text-[17px] leading-[24px] py-3 px-[14px]',
@@ -42,7 +20,7 @@ export const Input: React.FC<InputProps> = ({
 				/>
 			</div>
 
-			{(error || helperText) && (
+			{error && (
 				<div className='mt-2'>
 					{error && (
 						<p className='text-sm text-red-600 flex items-center gap-1'>
@@ -55,9 +33,6 @@ export const Input: React.FC<InputProps> = ({
 							</svg>
 							{error}
 						</p>
-					)}
-					{helperText && !error && (
-						<p className='text-sm text-gray-500'>{helperText}</p>
 					)}
 				</div>
 			)}

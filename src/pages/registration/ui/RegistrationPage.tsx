@@ -5,10 +5,17 @@ import { PhotosStep } from './steps/photos/PhotosStep'
 import { useState } from 'react'
 import type { Profile } from '@/shared/types'
 import { RegistrationContext } from '../model/RegistrationContext'
+import { useAppDispatch } from '@/shared/lib'
+import { setProfile } from '@/app/store/slices'
+import { useNavigate } from 'react-router-dom'
+import { ROUTES } from '@/shared/consts'
 
 const steps = [<NameStep />, <PassionsStep />, <PhotosStep />]
 
 export const RegistrationPage = () => {
+	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
+
 	const [step, setStep] = useState(0)
 	const [formData, setFormData] = useState<Profile>({
 		username: '',
@@ -19,7 +26,9 @@ export const RegistrationPage = () => {
 	const handleNext = () => {
 		if (step < steps.length - 1) setStep(step + 1)
 		else {
-			console.log(formData)
+			// Отправляем на бек, получаем пользователя
+			dispatch(setProfile(formData))
+			navigate(ROUTES.HOME)
 		}
 	}
 

@@ -1,2 +1,5 @@
-// Сюда будут добавляться экспорты сущностей (entities)
-// Пример: export { User } from './user';
+import type { User } from './user/types'
+import { UserCard } from './user/ui/user-card/UserCard'
+
+export { UserCard }
+export type { User }
