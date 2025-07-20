@@ -1,51 +1,322 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RegistrationState, Photo } from '../../../shared/types'
+import type { Photo, RegistrationState } from '@shared/types'
 
 const initialState: RegistrationState = {
 	currentStep: 1,
 	steps: {
 		name: {
-			step: 1,
 			isCompleted: false,
-			data: {
-				name: '',
-				email: '',
-				age: null,
-				bio: '',
-			},
+			name: '',
 		},
 		tags: {
-			step: 2,
 			isCompleted: false,
-			data: {
-				selectedTags: [],
-				availableTags: [
-					'Спорт',
-					'Путешествия',
-					'Музыка',
-					'Кино',
-					'Книги',
-					'Искусство',
-					'Фотография',
-					'Готовка',
-					'Танцы',
-					'Игры',
-					'Технологии',
-					'Природа',
-				],
-			},
+			selectedTags: [],
+			availableTags: [
+				'90s kid',
+				'Harry Potter',
+				'SoundCloud',
+				'Spa',
+				'Self-care',
+				'Heavy metal',
+				'House parties',
+				'Gin & tonic',
+				'Gymnastics',
+				'Ludo',
+				'Maggi',
+				'Hot yoga',
+				'Biryani',
+				'Meditation',
+				'Sushi',
+				'Spotify',
+				'Hockey',
+				'Basketball',
+				'Slam poetry',
+				'Home workouts',
+				'Theatre',
+				'Café hopping',
+				'Trainers',
+				'Aquarium',
+				'Instagram',
+				'Hot springs',
+				'Walking',
+				'Running',
+				'Travel',
+				'Language exchange',
+				'Films',
+				'Guitarists',
+				'Social development',
+				'Gym',
+				'Social media',
+				'Hip hop',
+				'Skincare',
+				'J-Pop',
+				'Cricket',
+				'Shisha',
+				'Freelance',
+				'K-Pop',
+				'Skateboarding',
+				'Gospel',
+				'Potterhead',
+				'Trying new things',
+				'Photography',
+				'Bollywood',
+				'Bhangra',
+				'Reading',
+				'Singing',
+				'Sports',
+				'Poetry',
+				'Stand-up comedy',
+				'Coffee',
+				'Karaoke',
+				'Fortnite',
+				'Free diving',
+				'Self-development',
+				'Mental health awareness',
+				'Foodie tour',
+				'Voter rights',
+				'Jiu-jitsu',
+				'Climate change',
+				'Exhibition',
+				'Walking my dog',
+				'LGBTQIA+ rights',
+				'Feminism',
+				'VR room',
+				'Escape café',
+				'Shopping',
+				'Brunch',
+				'Investment',
+				'Jet skiing',
+				'Reggaeton',
+				'Vintage clothing',
+				'Black Lives Matter',
+				'Jogging',
+				'Road trips',
+				'Vintage fashion',
+				'Voguing',
+				'Sofa surfing',
+				'Happy hour',
+				'Inclusivity',
+				'Country music',
+				'Football',
+				'Rollerblading',
+				'Investing',
+				'Tennis',
+				'Ice cream',
+				'Ice skating',
+				'Human rights',
+				'Exhibitions',
+				'Pig roast',
+				'Skiing',
+				'Canoeing',
+				'West End musicals',
+				'Snowboarding',
+				'Pilates',
+				'Pentathlon',
+				'Broadway',
+				'PlayStation',
+				'Cheerleading',
+				'Choir',
+				'Pole dancing',
+				'Five-a-side football',
+				'Car racing',
+				'Pinterest',
+				'Festivals',
+				'Pub quiz',
+				'Catan',
+				'Cosplay',
+				'Motor sports',
+				'Coffee stands',
+				'Content creation',
+				'E-sports',
+				'Bicycle racing',
+				'Binge-watching TV series',
+				'Songwriter',
+				'Bodycombat',
+				'Tattoos',
+				'Painting',
+				'Bodyjam',
+				'Paddle boarding',
+				'Padel',
+				'Blackpink',
+				'Surfing',
+				'Bowling',
+				'Grime',
+				'90s Britpop',
+				'Bodypump',
+				'Beach bars',
+				'Bodystep',
+				'Paragliding',
+				'Upcycling',
+				'Equality',
+				'Astrology',
+				'Motorcycles',
+				'Equestrian',
+				'Entrepreneurship',
+				'Sake',
+				'BTS',
+				'Cooking',
+				'Environmental protection',
+				'Fencing',
+				'Football',
+				'Saxophonist',
+				'Sci-fi',
+				'Dancing',
+				'Film festivals',
+				'Freeletics',
+				'Gardening',
+				'Amateur cook',
+				'Exchange programmes',
+				'Sauna',
+				'Art',
+				'Politics',
+				'Flamenco',
+				'Museum',
+				'Activism',
+				'DAOs',
+				'Real estate',
+				'Podcasts',
+				'Disability rights',
+				'Rave',
+				'Pimms',
+				'Drive-in cinema',
+				'Rock climbing',
+				'BBQ',
+				'Craft beer',
+				'Iced tea',
+				'Drummer',
+				'Tea',
+				'Board games',
+				'Roblox',
+				'Pubs',
+				'Rock',
+				'Tango',
+				'Drawing',
+				'Trivia',
+				'Pho',
+				'Volunteering',
+				'Environmentalism',
+				'Rollerskating',
+				'Wine',
+				'Dungeons & Dragons',
+				'Vlogging',
+				'Electronic music',
+				'Ramen',
+				'Weightlifting',
+				'Live music',
+				'Writing',
+				'Xbox',
+				'World peace',
+				'Wrestling',
+				'Literature',
+				'Manga',
+				'Pride',
+				'Marathon',
+				'Make-up',
+				'Youth empowerment',
+				'YouTube',
+				'Martial arts',
+				'Marvel',
+				'Vegan cooking',
+				'Vermouth',
+				'Korean food',
+				'Twitter',
+				'Volleyball',
+				'Walking tours',
+				'Vinyasa',
+				'Virtual reality',
+				'League of Legends',
+				'NFTs',
+				'Pub crawls',
+				'Nintendo',
+				'Baseball',
+				'Parties',
+				'Ballet',
+				'Bands',
+				'Online games',
+				'Battle Ground',
+				'Beach tennis',
+				'Nightlife',
+				'Online shopping',
+				'Sailing',
+				'Olympic gymnastics',
+				'Bassist',
+				'Online broker',
+				'Military',
+				'Memes',
+				'Among Us',
+				'Motorbike racing',
+				'Motorcycling',
+				'Metaverse',
+				'Mindfulness',
+				'Acapella',
+				'Playing a musical instrument',
+				'Art galleries',
+				'Writing musicals',
+				'Hiking',
+				'Artistic gymnastics',
+				'Mountains',
+				'Archery',
+				'Atari',
+				'Backpacking',
+				'Fishing',
+				'Clubbing',
+				'Street food',
+				'Crossfit',
+				'Concerts',
+				'Climbing',
+				'Baking',
+				'Camping',
+				'Blogging',
+				'Collecting',
+				'Cars',
+				'Start-ups',
+				'Boba tea',
+				'High-school baseketball league (TW)',
+				'Badminton',
+				'Active lifestyle',
+				'Fashion',
+				'Anime',
+				'NBA',
+				'MLB',
+				'Funk music',
+				'Caipirinha',
+				'Indoor activities',
+				'Tempeh',
+				'DIY',
+				'Town festivities',
+				'Cycling',
+				'Outdoors',
+				'TikTok',
+				'Picnicking',
+				'Twitch',
+				'Comedy',
+				'Trap music',
+				'Music',
+				'Triathlon',
+				'Netflix',
+				'Disney',
+				'Rugby',
+				'Açaí',
+				'Samba',
+				'Tarot',
+				'Stock exchange',
+				'Stocks',
+				'Swimming',
+				'Table tennis',
+				'Killing time',
+				'Working out',
+				'Yoga',
+				'Horror films',
+				'Boxing',
+				'Chilling at a bar',
+			],
 		},
 		photos: {
-			step: 3,
 			isCompleted: false,
-			data: {
-				photos: [],
-				mainPhotoId: null,
-			},
+			photos: [],
 		},
 	},
-	isCompleted: false,
 }
 
 const registrationSlice = createSlice({
@@ -69,25 +340,22 @@ const registrationSlice = createSlice({
 			state,
 			action: PayloadAction<{
 				name?: string
-				email?: string
-				age?: number
-				bio?: string
 			}>
 		) => {
-			state.steps.name.data = { ...state.steps.name.data, ...action.payload }
-			const { name, email, age } = state.steps.name.data
-			state.steps.name.isCompleted = !!(name && email && age)
+			state.steps.name = { ...state.steps.name, ...action.payload }
+			const { name } = state.steps.name
+			state.steps.name.isCompleted = !!name
 		},
 		updateTagsStep: (
 			state,
 			action: PayloadAction<{ selectedTags: string[] }>
 		) => {
-			state.steps.tags.data.selectedTags = action.payload.selectedTags
+			state.steps.tags.selectedTags = action.payload.selectedTags
 			state.steps.tags.isCompleted = action.payload.selectedTags.length > 0
 		},
 		addTag: (state, action: PayloadAction<string>) => {
 			const tag = action.payload
-			const selectedTags = state.steps.tags.data.selectedTags
+			const selectedTags = state.steps.tags.selectedTags
 			if (!selectedTags.includes(tag)) {
 				selectedTags.push(tag)
 				state.steps.tags.isCompleted = selectedTags.length > 0
@@ -95,7 +363,7 @@ const registrationSlice = createSlice({
 		},
 		removeTag: (state, action: PayloadAction<string>) => {
 			const tag = action.payload
-			const selectedTags = state.steps.tags.data.selectedTags
+			const selectedTags = state.steps.tags.selectedTags
 			const index = selectedTags.indexOf(tag)
 			if (index > -1) {
 				selectedTags.splice(index, 1)
@@ -103,51 +371,17 @@ const registrationSlice = createSlice({
 			}
 		},
 		addPhoto: (state, action: PayloadAction<Photo>) => {
-			state.steps.photos.data.photos.push(action.payload)
-			state.steps.photos.isCompleted = state.steps.photos.data.photos.length > 0
-
-			// Если это первое фото, делаем его главным
-			if (state.steps.photos.data.photos.length === 1) {
-				state.steps.photos.data.mainPhotoId = action.payload.id
-			}
+			state.steps.photos.photos.push(action.payload)
+			state.steps.photos.isCompleted = state.steps.photos.photos.length > 0
 		},
-		removePhoto: (state, action: PayloadAction<string>) => {
-			const photoId = action.payload
-			const photos = state.steps.photos.data.photos
-			const index = photos.findIndex((photo: Photo) => photo.id === photoId)
+		removePhoto: (state, action: PayloadAction<Photo>) => {
+			const photos = state.steps.photos.photos
+			const index = photos.findIndex(photo => photo.id === action.payload.id)
 
 			if (index > -1) {
 				photos.splice(index, 1)
 				state.steps.photos.isCompleted = photos.length > 0
-
-				// Если удаляем главное фото, делаем главным первое из оставшихся
-				if (
-					state.steps.photos.data.mainPhotoId === photoId &&
-					photos.length > 0
-				) {
-					state.steps.photos.data.mainPhotoId = photos[0].id
-				} else if (photos.length === 0) {
-					state.steps.photos.data.mainPhotoId = null
-				}
 			}
-		},
-		setMainPhoto: (state, action: PayloadAction<string>) => {
-			state.steps.photos.data.mainPhotoId = action.payload
-		},
-		reorderPhotos: (state, action: PayloadAction<Photo[]>) => {
-			state.steps.photos.data.photos = action.payload.map((photo, index) => ({
-				...photo,
-				order: index,
-			}))
-		},
-		completeRegistration: state => {
-			const allStepsCompleted = Object.values(state.steps).every(
-				step => step.isCompleted
-			)
-			state.isCompleted = allStepsCompleted
-		},
-		resetRegistration: state => {
-			return initialState
 		},
 	},
 })
@@ -162,10 +396,6 @@ export const {
 	removeTag,
 	addPhoto,
 	removePhoto,
-	setMainPhoto,
-	reorderPhotos,
-	completeRegistration,
-	resetRegistration,
 } = registrationSlice.actions
 
 export default registrationSlice.reducer

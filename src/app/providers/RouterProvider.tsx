@@ -1,14 +1,22 @@
 import { HomePage } from '@/pages/home'
-import type { PropsWithChildren } from 'react'
-import { BrowserRouter, createBrowserRouter } from 'react-router-dom'
+import { RegistrationPage } from '@/pages/registration'
+import { ROUTES } from '@/shared/consts'
+import {
+	createBrowserRouter,
+	RouterProvider as Provider,
+} from 'react-router-dom'
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: ROUTES.REGISTRATION,
+		element: <RegistrationPage />,
+	},
+	{
+		path: ROUTES.HOME,
 		element: <HomePage />,
 	},
 ])
 
-export const RouterProvider = ({ children }: PropsWithChildren) => {
-	return <BrowserRouter></BrowserRouter>
+export const RouterProvider = () => {
+	return <Provider router={router} />
 }
