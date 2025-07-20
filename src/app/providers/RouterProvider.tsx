@@ -3,10 +3,15 @@ import { RegistrationPage } from '@/pages/registration'
 import { ROUTES } from '@/shared/consts'
 import {
 	createBrowserRouter,
+	Navigate,
 	RouterProvider as Provider,
 } from 'react-router-dom'
 
 const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Navigate to={ROUTES.REGISTRATION} />,
+	},
 	{
 		path: ROUTES.REGISTRATION,
 		element: <RegistrationPage />,

@@ -6,31 +6,12 @@ export interface InputProps
 	label?: string
 	error?: string
 	helperText?: string
-	variant?: 'default' | 'underline' | 'filled'
-	size?: 'sm' | 'md' | 'lg'
-}
-
-const inputVariants = {
-	default:
-		'border border-gray-300 rounded-lg bg-white focus:border-pink-500 focus:ring-pink-500',
-	underline:
-		'border-0 border-b-2 border-gray-300 rounded-none bg-transparent focus:border-pink-500 focus:ring-0 px-0',
-	filled:
-		'border-0 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-pink-500',
-}
-
-const inputSizes = {
-	sm: 'px-3 py-2 text-sm',
-	md: 'px-4 py-3 text-base',
-	lg: 'px-5 py-4 text-lg',
 }
 
 export const Input: React.FC<InputProps> = ({
 	label,
 	error,
 	helperText,
-	variant = 'default',
-	size = 'md',
 	className,
 	id,
 	...props
@@ -53,12 +34,7 @@ export const Input: React.FC<InputProps> = ({
 					id={inputId}
 					className={cn(
 						// Базовые стили
-						'w-full transition-all duration-200 focus:outline-none',
-						// Варианты
-						inputVariants[variant],
-						// Размеры
-						inputSizes[size],
-						// Состояние ошибки
+						'w-full transition-all duration-200 focus:outline-none border border-border rounded-lg bg-foreground text-primary text-[17px] leading-[24px] py-3 px-[14px]',
 						error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
 						className
 					)}
