@@ -6,6 +6,7 @@ import Star from '@/assets/icons/star.svg?react'
 import Energy from '@/assets/icons/energy.svg?react'
 import Like from '@/assets/icons/like.svg?react'
 import { cn } from '@/shared/lib'
+import { useState } from 'react'
 
 const buttons = [
 	{
@@ -52,13 +53,33 @@ type Props = {
 }
 
 export const UserCard = ({ user, actions }: Props) => {
+	const [photoIndex, setPhotoIndex] = useState(0)
+
+	const handlePhotoClick = () => {
+		console.log(photoIndex)
+		setPhotoIndex(prev => (prev + 1) % user.profile.photos.length)
+	}
+
 	return (
 		<div className={'rounded-lg overflow-hidden flex flex-col h-full max-w-md'}>
 			<div className='relative flex-1 flex flex-col'>
+				{/* Pagination */}
+				<div className='absolute top-4 left-2.5 right-2.5 flex gap-1'>
+					{user.profile.photos.map((_, i) => (
+						<div
+							key={i}
+							className={cn('h-1 grow rounded-full bg-gray-200', {
+								'bg-white': photoIndex === i,
+							})}
+						/>
+					))}
+				</div>
+
 				{/* Images */}
 				<img
-					src={user.profile.photos[0].url}
-					className='w-full h-0 grow object-cover'
+					src={user.profile.photos[photoIndex].url}
+					onClick={handlePhotoClick}
+					className='w-full h-0 grow object-cover pressable'
 				/>
 				{/* User Info */}
 				<div className='z-10 absolute bottom-6 right-4 left-4'>
