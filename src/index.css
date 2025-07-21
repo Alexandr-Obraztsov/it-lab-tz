@@ -55,6 +55,7 @@ body {
 	background-color: var(--background);
 	color: var(--text-primary);
 	overflow: hidden;
+	font-family: 'proxima-nova', sans-serif;
 }
 
 * {
@@ -68,4 +69,15 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	font-weight: 700;
+	src: url('/fonts/proximanova_bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'proxima-nova';
+	font-weight: 400;
+	src: url('/fonts/proximanova_regular.ttf') format('truetype');
 }

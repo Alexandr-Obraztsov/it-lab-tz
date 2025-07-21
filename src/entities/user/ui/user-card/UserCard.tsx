@@ -112,12 +112,12 @@ export const UserCard = ({ user, actions }: Props) => {
 
 			{/* Actions */}
 			{actions && (
-				<div className='bg-black flex justify-center items-center py-[13px] gap-6 shrink-0'>
+				<div className='bg-black flex justify-between items-center py-[13px] px-4 shrink-0'>
 					{buttons.map(({ size, color, icon, action }, i) => (
 						<button
 							key={i}
 							className={cn(
-								'rounded-full flex items-center justify-center pressable',
+								'rounded-full flex items-center justify-center pressable shrink-0',
 								{
 									'size-12': size === 'small',
 									'size-15': size === 'big',
